@@ -1,14 +1,22 @@
 package com.mybank.controller
 
-import io.micronaut.http.HttpResponse
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Get
+import com.mybank.model.Account
+import com.mybank.service.AccountService
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.*
 
 @Controller("/accounts")
-class AccountController {
+class AccountController(private val accountService: AccountService)
+{
 
-    @Get("/")
-    fun index(): HttpResponse<String> {
-        return HttpResponse.ok("teste")
+    @Post
+    @Consumes(MediaType.APPLICATION_JSON)
+    fun addAccount(@Body account: Account): Account {
+        return accountService.addAccount(account)
+    }
+
+    @Get
+    fun getAccount(id: Long): Account {
+        return accountService.findAccountById(id)
     }
 }

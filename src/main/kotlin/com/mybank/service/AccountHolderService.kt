@@ -27,24 +27,3 @@ class AccountHolderService () {
 
     }
 }
-
-//@Singleton
-//@Around
-//class AccountHolderService (@PersistenceContext val entityManager: EntityManager) {
-//
-//    fun findAccountHolder(email : String) : AccountHolder? {
-//        return try {
-//            entityManager.createQuery("SELECT ah FROM AccountHolder ah WHERE name = :name", AccountHolder::class.java)
-//                    .setParameter("email", email)
-//                    .singleResult
-//        } catch (e : Exception) {
-//            null
-//        }
-//    }
-//
-//    @TransactionalAdvice
-//    fun addAccountHolder(ah: AccountHolder) : AccountHolder {
-//        entityManager.persist(ah)
-//        return ah
-//    }
-//}

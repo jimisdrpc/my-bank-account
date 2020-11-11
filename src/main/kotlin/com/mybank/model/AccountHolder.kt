@@ -27,7 +27,7 @@ data class AccountHolder(@Id
                          var birthDate: LocalDate,
                          var category: Category,
                          @Column(nullable = true)
-                         @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.LAZY, mappedBy = "accountId")
+                         @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, mappedBy = "accountId")
                          val account: List<Account>? = null
 
 )

@@ -42,6 +42,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     runtimeOnly("com.h2database:h2")
+    //compile 'org.jetbrains.kotlin:kotlin-noarg:1.4.10'
 }
 
 mainClassName = "com.mybank.ApplicationKt"
@@ -58,6 +59,13 @@ compileTestKotlin {
     kotlinOptions {
         jvmTarget = '11'
     }
+}
+
+apply plugin: "kotlin-noarg"
+
+noArg {
+    annotation("com.mybank.model.NoArg")
+    invokeInitializers = true
 }
 
 

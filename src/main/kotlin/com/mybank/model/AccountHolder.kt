@@ -11,6 +11,7 @@ import javax.persistence.*
 
 
 @Entity
+@NoArg
 data class AccountHolder(@Id
                          //@GeneratedValue //(strategy = GenerationType.SEQUENCE, generator = "account_generator")
                          //@SequenceGenerator(name="account_generator", sequenceName = "account_seq")
